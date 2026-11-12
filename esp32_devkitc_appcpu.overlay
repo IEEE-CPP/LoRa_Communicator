@@ -1,0 +1,10 @@
+&uart0 {
+	status = "okay";
+	current-speed = <115200>;
+
+	lora0: rylr998 {
+		compatible = "reyax,rylrxxx";
+		reset-gpios = <&gpio0 12 GPIO_ACTIVE_LOW>;
+		status = "okay";
+	};
+};
