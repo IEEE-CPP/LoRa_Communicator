@@ -1,6 +1,6 @@
 .PHONY: all clean build prog setup
 
-BOARD ?= esp32_devkitc_procpu
+BOARD ?= esp32_devkitc/esp32/procpu
 BUILD_DIR ?= build
 PYTHON ?= $(abspath .venv/bin/python)
 ESPTOOL ?= esptool
@@ -10,6 +10,9 @@ BAUD ?= 921600
 FLASH_OFFSET ?= 0x1000
 BIN ?= $(abspath $(BUILD_DIR)/zephyr/zephyr.bin)
 CMAKE_ARGS ?=
+
+# Zephyr invokes helper tools such as esptool directly from PATH.
+export PATH := $(abspath .venv/bin):$(PATH)
 
 all: clean build
 

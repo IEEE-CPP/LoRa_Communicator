@@ -1,3 +1,9 @@
+/ {
+	aliases {
+		lora0 = &lora0;
+	};
+};
+
 &uart0 {
 	status = "okay";
 	current-speed = <115200>;
